@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展程序</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        .token-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .token-container .token {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fff;
+            overflow-y: auto;
+            word-wrap: break-word;
+        }
+        .token-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .token-container button:hover {
+            background-color: #0056b3;
+        }
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+        }
+        .toast.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        @-webkit-keyframes fadein {
+            from {bottom: 0; opacity: 0;} 
+            to {bottom: 30px; opacity: 1;}
+        }
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+        @-webkit-keyframes fadeout {
+            from {bottom: 30px; opacity: 1;} 
+            to {bottom: 0; opacity: 0;}
+        }
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+    <h1>扩展程序</h1>
+    <div class="token-container">
+        <div id="accessToken" class="token" placeholder="Access Token"></div>
+        <button id="copyAccessToken">复制 Access Token</button>
+    </div>
+    <div class="token-container">
+        <div id="refreshToken" class="token" placeholder="Refresh Token"></div>
+        <button id="copyRefreshToken">复制 Refresh Token</button>
+    </div>
+    <div class="token-container">
+        <div id="session" class="token" placeholder="Session"></div>
+        <button id="copySession">复制 Session</button>
+    </div>
+    <div id="url-display"></div>
+    <div id="toast" class="toast">已复制到剪贴板</div>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="clipboard.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
