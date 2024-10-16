@@ -1,9 +1,9 @@
 function copyToClipboard(elementId) {
     var $divElement = $(`#${elementId}`);
-    var range = document.createRange();
-    range.selectNode($divElement[0]);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
+    var textToCopy = $divElement.text().trim(); // 去除多余的换行符和空格
+    var $tempInput = $('<textarea>');
+    $('body').append($tempInput);
+    $tempInput.val(textToCopy).select();
     try {
         var successful = document.execCommand('copy');
         var msg = successful ? `${$divElement.attr('placeholder')} 已复制到剪贴板` : '复制失败';
@@ -11,7 +11,7 @@ function copyToClipboard(elementId) {
     } catch (err) {
         showNotification('复制失败');
     }
-    window.getSelection().removeAllRanges();
+    $tempInput.remove();
 }
 
 function showNotification(message) {

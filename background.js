@@ -24,12 +24,10 @@ chrome.action.onClicked.addListener(async function (tab) {
 chrome.webRequest.onBeforeRedirect.addListener(
     function (details) {
         console.log(details);
+        // code from https://github.com/wozulong/ChatGPTAuthHelper
         if (details.redirectUrl.startsWith('com.openai.chat://auth0.openai.com/ios/com.openai.chat/callback?')) {
             const code = new URL(details.redirectUrl).searchParams.get('code');
             console.log(code);
-            // if (!state.startsWith('ofstate:')) {
-            //     return;
-            // }
             chrome.storage.local.set({location: details.redirectUrl}, function () {
                 chrome.tabs.update(details.tabId, {url: 'popup.html'});
             });
