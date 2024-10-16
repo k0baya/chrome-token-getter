@@ -5,7 +5,7 @@
 
 1. 下载插件
 
-在[Release](）页面下载最新的插件
+在 [Release](https://github.com/xyhelper/xyhelper-chrome-login/releases) 页面下载最新的插件
 
 2. 安装插件
 
