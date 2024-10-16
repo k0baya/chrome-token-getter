@@ -1,4 +1,4 @@
-# xyhelper-gpt
+# xyhelper-chrome-login 
 一个获取refreshToken的小工具.
 
 ## 插件安装方法
