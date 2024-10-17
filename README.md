@@ -1,5 +1,9 @@
 # xyhelper-chrome-login 
-一个获取refreshToken的小工具.
+一个获取refreshToken的小工具.公益服务,请勿滥用.
+
+
+[L站网友吃瓜专属链接](https://github.com/orgs/xyhelper/discussions/1)
+
 
 ## 插件安装方法
 
