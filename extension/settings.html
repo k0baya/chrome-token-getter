@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Settings</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #333333;
+            --background-color: #000000;
+            --text-color: #ffffff;
+            --input-bg: rgba(255, 255, 255, 0.1);
+            --box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            --success-bg: rgba(0, 255, 0, 0.2);
+            --success-border: #00ff00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: var(--box-shadow);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--primary-color);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1em;
+            background-color: var(--input-bg);
+            border: 1px solid var(--primary-color);
+            border-radius: 10px;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1em;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--box-shadow);
+        }
+
+        .button:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(255, 255, 255, 0.15);
+        }
+
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            opacity: 0;
+            transition: all 0.3s ease;
+            background-color: var(--success-bg);
+            border: 1px solid var(--success-border);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .message.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 30px;
+            }
+
+            .title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Set Remote URL</h1>
+        <div class="input-group">
+            <input type="text" id="remoteUrlInput" class="input" placeholder="Enter remote URL" />
+        </div>
+        <button id="saveButton" class="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
+                <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
+            </svg>
+            Set
+        </button>
+        <div id="message" class="message"></div>
+    </div>
+    <script src="settings.js"></script>
+</body>
+</html>

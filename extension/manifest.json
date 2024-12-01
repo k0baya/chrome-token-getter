@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "xyhelper-chrome-login",
-  "description": "获取ChatGPT的token",
+  "name": "token-getter",
+  "description": "获取 ChatGPT 的 token",
   "version": "1.0",
   "permissions": [
     "tabs",
@@ -14,7 +14,7 @@
     "https://auth0.openai.com/*"
   ],
   "action": {
-    "default_title": "XYHELPER-GPT"
+    "default_title": "APPLE-LOGIN"
   },
   "background": {
     "service_worker": "background.js"

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>xyhelper助手</title>
+    <title>Apple Login 助手</title>
     <style>
         :root {
-            --primary-color: #4a90e2;
-            --secondary-color: #f5f7fa;
+            --primary-color: #333;
+            --secondary-color: #f5f5f5;
             --text-color: #333;
             --border-radius: 12px;
         }
@@ -15,9 +15,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             min-height: 100vh;
-            background: linear-gradient(135deg, #f6f9fc 0%, #e9f2f9 100%);
+            background: #fff;
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 20px;
@@ -68,7 +68,7 @@
         }
         .token:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1), inset 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1), inset 0 1px 3px rgba(0, 0, 0, 0.05);
         }
         button {
             width: 90%;
@@ -85,7 +85,7 @@
             letter-spacing: 0.5px;
         }
         button:hover {
-            background-color: #3a7ac8;
+            background-color: #555;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         button:active {
@@ -96,7 +96,7 @@
             visibility: hidden;
             min-width: 250px;
             margin-left: -125px;
-            background-color: #2ecc71;
+            background-color: #333;
             color: white;
             text-align: center;
             border-radius: 50px;
@@ -120,10 +120,55 @@
             from {bottom: 30px; opacity: 1;}
             to {bottom: 0; opacity: 0;}
         }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            font-size: 16px;
+        }
+        .footer a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .prompt-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--secondary-color);
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .prompt-box button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: var(--primary-color);
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            line-height: 1;
+        }
     </style>
 </head>
 <body>
-    <h1>xyhelper助手</h1>
+    <h1>Apple Login 助手</h1>
+    <div class="prompt-box">
+        <span>请勿刷新此页面，Token 仅展示一次，刷新后将消失。</span>
+        <button id="closePrompt">&times;</button>
+    </div>
     <div class="token-container">
         <textarea id="accessToken" class="token" placeholder="Access Token"></textarea>
         <button id="copyAccessToken">复制 Access Token</button>
@@ -138,8 +183,12 @@
     </div>
     <div id="url-display"></div>
     <div id="toast" class="toast">已复制到剪贴板</div>
+    <footer class="footer">
+        <p>感谢 <a href="https://github.com/wozulong" target="_blank">wozulong</a> 和 <a href="https://github.com/xyhelper" target="_blank">xyhelper</a></p>
+    </footer>
     <script src="jquery-3.6.0.min.js"></script>
     <script src="clipboard.js"></script>
     <script src="popup.js"></script>
 </body>
 </html>
+
